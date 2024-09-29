@@ -14,15 +14,15 @@ include(GoogleTest)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 file(GLOB_RECURSE LIB_FILES "src/**/*.hpp" "src/**/*.cpp")
-ADD_LIBRARY(libcode STATIC ${LIB_FILES})
-target_include_directories(libcode PUBLIC src)
+ADD_LIBRARY(libatm STATIC ${LIB_FILES})
+target_include_directories(libatm PUBLIC src)
 
 enable_testing()
 file(GLOB_RECURSE TEST_FILES "test/*.cpp")
 foreach(TEST_FILE ${TEST_FILES})
     get_filename_component(FILENAME ${TEST_FILE} NAME_WE)
     add_executable(${FILENAME}_test ${TEST_FILE})
-    target_link_libraries(${FILENAME}_test PRIVATE libcode GTest::GTest GTest::Main pthread)
+    target_link_libraries(${FILENAME}_test PRIVATE libatm GTest::GTest GTest::Main pthread)
     gtest_discover_tests(${FILENAME}_test)
 endforeach()
 
