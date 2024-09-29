@@ -22,7 +22,7 @@ sudo make install
 Follow the commands below to build the project. Cmake should find googletest package.
 
 ``` bash
-cd $PROJ_DIR # where RPOJ_DIR=/path/to/01_atm_controller
+cd $PROJ_DIR # where PROJ_DIR=/path/to/01_atm_controller
 mkdir build && cd build
 cmake .. && make -j
 ```
@@ -33,7 +33,7 @@ Follow the commands to run the unit tests.
 cd $PROJ_DIR/build # where RPOJ_DIR=/path/to/01_atm_controller
 
 ctest -V # 1. Just test
-ctest -V | tee test.log  # Test and log as file
+ctest -V | tee test.log  # 2. Test and log as file
 ```
 
 You may find the exemplar log in `test.log`.
